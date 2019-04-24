@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C80F2C422704D3700EB6A8E /* EasyTelegram.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C80F2C222704D3700EB6A8E /* EasyTelegram.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C80F2CB22704D6000EB6A8E /* TelegramTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2CA22704D6000EB6A8E /* TelegramTaskManager.swift */; };
+		0C80F2CD22704DB900EB6A8E /* TelegramLongPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2CC22704DB900EB6A8E /* TelegramLongPoll.swift */; };
+		0C80F2D622704E1C00EB6A8E /* EasyHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C80F2D522704E1C00EB6A8E /* EasyHTTP.framework */; };
+		0C80F2D822704E6500EB6A8E /* TelegramMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2D722704E6500EB6A8E /* TelegramMessage.swift */; };
+		0C80F2DA22704E9300EB6A8E /* TelegramHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2D922704E9300EB6A8E /* TelegramHttp.swift */; };
+		0C80F2DC22704EEF00EB6A8E /* TelegramSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2DB22704EEF00EB6A8E /* TelegramSettings.swift */; };
+		0C80F2DE22704F3E00EB6A8E /* TelegramAnnouncement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2DD22704F3E00EB6A8E /* TelegramAnnouncement.swift */; };
+		0C80F2E022704F6900EB6A8E /* TelegramSendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2DF22704F6900EB6A8E /* TelegramSendMessage.swift */; };
+		0C80F2E222704F8E00EB6A8E /* TelegramBotReplyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2E122704F8E00EB6A8E /* TelegramBotReplyListener.swift */; };
+		0C80F2E422704FEF00EB6A8E /* TelegramBotAdminList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2E322704FEF00EB6A8E /* TelegramBotAdminList.swift */; };
+		0C80F2E6227050AB00EB6A8E /* TelegramPhotoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2E5227050AB00EB6A8E /* TelegramPhotoDownloader.swift */; };
+		0C80F2E8227050EB00EB6A8E /* TelegramTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80F2E7227050EB00EB6A8E /* TelegramTester.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C80F2BF22704D3700EB6A8E /* EasyTelegram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTelegram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C80F2C222704D3700EB6A8E /* EasyTelegram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyTelegram.h; sourceTree = "<group>"; };
+		0C80F2C322704D3700EB6A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C80F2CA22704D6000EB6A8E /* TelegramTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramTaskManager.swift; sourceTree = "<group>"; };
+		0C80F2CC22704DB900EB6A8E /* TelegramLongPoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramLongPoll.swift; sourceTree = "<group>"; };
+		0C80F2D522704E1C00EB6A8E /* EasyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EasyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C80F2D722704E6500EB6A8E /* TelegramMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramMessage.swift; sourceTree = "<group>"; };
+		0C80F2D922704E9300EB6A8E /* TelegramHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramHttp.swift; sourceTree = "<group>"; };
+		0C80F2DB22704EEF00EB6A8E /* TelegramSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramSettings.swift; sourceTree = "<group>"; };
+		0C80F2DD22704F3E00EB6A8E /* TelegramAnnouncement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramAnnouncement.swift; sourceTree = "<group>"; };
+		0C80F2DF22704F6900EB6A8E /* TelegramSendMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramSendMessage.swift; sourceTree = "<group>"; };
+		0C80F2E122704F8E00EB6A8E /* TelegramBotReplyListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramBotReplyListener.swift; sourceTree = "<group>"; };
+		0C80F2E322704FEF00EB6A8E /* TelegramBotAdminList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramBotAdminList.swift; sourceTree = "<group>"; };
+		0C80F2E5227050AB00EB6A8E /* TelegramPhotoDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramPhotoDownloader.swift; sourceTree = "<group>"; };
+		0C80F2E7227050EB00EB6A8E /* TelegramTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramTester.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0C80F2BC22704D3700EB6A8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C80F2D622704E1C00EB6A8E /* EasyHTTP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C80F2B522704D3700EB6A8E = {
+			isa = PBXGroup;
+			children = (
+				0C80F2C122704D3700EB6A8E /* EasyTelegram */,
+				0C80F2C022704D3700EB6A8E /* Products */,
+				0C80F2D422704E1C00EB6A8E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0C80F2C022704D3700EB6A8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C80F2BF22704D3700EB6A8E /* EasyTelegram.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0C80F2C122704D3700EB6A8E /* EasyTelegram */ = {
+			isa = PBXGroup;
+			children = (
+				0C80F2C222704D3700EB6A8E /* EasyTelegram.h */,
+				0C80F2C322704D3700EB6A8E /* Info.plist */,
+				0C80F2CA22704D6000EB6A8E /* TelegramTaskManager.swift */,
+				0C80F2CC22704DB900EB6A8E /* TelegramLongPoll.swift */,
+				0C80F2D722704E6500EB6A8E /* TelegramMessage.swift */,
+				0C80F2D922704E9300EB6A8E /* TelegramHttp.swift */,
+				0C80F2DB22704EEF00EB6A8E /* TelegramSettings.swift */,
+				0C80F2DD22704F3E00EB6A8E /* TelegramAnnouncement.swift */,
+				0C80F2DF22704F6900EB6A8E /* TelegramSendMessage.swift */,
+				0C80F2E122704F8E00EB6A8E /* TelegramBotReplyListener.swift */,
+				0C80F2E322704FEF00EB6A8E /* TelegramBotAdminList.swift */,
+				0C80F2E5227050AB00EB6A8E /* TelegramPhotoDownloader.swift */,
+				0C80F2E7227050EB00EB6A8E /* TelegramTester.swift */,
+			);
+			path = EasyTelegram;
+			sourceTree = "<group>";
+		};
+		0C80F2D422704E1C00EB6A8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C80F2D522704E1C00EB6A8E /* EasyHTTP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0C80F2BA22704D3700EB6A8E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C80F2C422704D3700EB6A8E /* EasyTelegram.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0C80F2BE22704D3700EB6A8E /* EasyTelegram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C80F2C722704D3700EB6A8E /* Build configuration list for PBXNativeTarget "EasyTelegram" */;
+			buildPhases = (
+				0C80F2BA22704D3700EB6A8E /* Headers */,
+				0C80F2BB22704D3700EB6A8E /* Sources */,
+				0C80F2BC22704D3700EB6A8E /* Frameworks */,
+				0C80F2BD22704D3700EB6A8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyTelegram;
+			productName = EasyTelegram;
+			productReference = 0C80F2BF22704D3700EB6A8E /* EasyTelegram.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0C80F2B622704D3700EB6A8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Dr. Kerem Koseoglu";
+				TargetAttributes = {
+					0C80F2BE22704D3700EB6A8E = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 0C80F2B922704D3700EB6A8E /* Build configuration list for PBXProject "EasyTelegram" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0C80F2B522704D3700EB6A8E;
+			productRefGroup = 0C80F2C022704D3700EB6A8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0C80F2BE22704D3700EB6A8E /* EasyTelegram */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0C80F2BD22704D3700EB6A8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C80F2BB22704D3700EB6A8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C80F2E6227050AB00EB6A8E /* TelegramPhotoDownloader.swift in Sources */,
+				0C80F2E422704FEF00EB6A8E /* TelegramBotAdminList.swift in Sources */,
+				0C80F2DC22704EEF00EB6A8E /* TelegramSettings.swift in Sources */,
+				0C80F2E222704F8E00EB6A8E /* TelegramBotReplyListener.swift in Sources */,
+				0C80F2CB22704D6000EB6A8E /* TelegramTaskManager.swift in Sources */,
+				0C80F2D822704E6500EB6A8E /* TelegramMessage.swift in Sources */,
+				0C80F2DA22704E9300EB6A8E /* TelegramHttp.swift in Sources */,
+				0C80F2CD22704DB900EB6A8E /* TelegramLongPoll.swift in Sources */,
+				0C80F2E022704F6900EB6A8E /* TelegramSendMessage.swift in Sources */,
+				0C80F2DE22704F3E00EB6A8E /* TelegramAnnouncement.swift in Sources */,
+				0C80F2E8227050EB00EB6A8E /* TelegramTester.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0C80F2C522704D3700EB6A8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0C80F2C622704D3700EB6A8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0C80F2C822704D3700EB6A8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 25T695DT32;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EasyTelegram/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keremkoseoglu.EasyTelegram;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0C80F2C922704D3700EB6A8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 25T695DT32;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EasyTelegram/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keremkoseoglu.EasyTelegram;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C80F2B922704D3700EB6A8E /* Build configuration list for PBXProject "EasyTelegram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C80F2C522704D3700EB6A8E /* Debug */,
+				0C80F2C622704D3700EB6A8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C80F2C722704D3700EB6A8E /* Build configuration list for PBXNativeTarget "EasyTelegram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C80F2C822704D3700EB6A8E /* Debug */,
+				0C80F2C922704D3700EB6A8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0C80F2B622704D3700EB6A8E /* Project object */;
+}
