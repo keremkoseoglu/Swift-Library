@@ -23,13 +23,16 @@ public class Location: NSObject, CLLocationManagerDelegate {
 	
 	private static var singleton: Location!
 	
+	private var geoCoder: CLGeocoder
 	private var locationClient: LocationClient!
 	private var lastLocationDate: Date!
 	private var lastLocation: CLLocation!
 	private var lastAddress: String!
+	private var locationInProgress: Bool
 	private var locationManager: CLLocationManager
 	private var purpose: Purpose!
-	private var geoCoder: CLGeocoder
+	private var timeOutTimer: Timer!
+	
 	
 	////////////////////////////////////////////////////////////
 	// Constructor
@@ -39,6 +42,7 @@ public class Location: NSObject, CLLocationManagerDelegate {
 		locationManager = CLLocationManager()
 		locationManager.requestWhenInUseAuthorization()
 		geoCoder = CLGeocoder()
+		locationInProgress = false
 	}
 	
 	public static func getInstance() -> Location {
@@ -55,7 +59,7 @@ public class Location: NSObject, CLLocationManagerDelegate {
 		locationClient = client
 		
 		if lastAddress != nil && lastAddress != "" && lastLocationDate != nil  && didLastLocationExpire() {
-			locationClient.addressDetected(address: lastAddress, success: true, error: "")
+			notifyAddress(address: lastAddress, success: true, error: "")
 			return
 		}
 		
@@ -67,7 +71,7 @@ public class Location: NSObject, CLLocationManagerDelegate {
 		locationClient = client
 		
 		if lastLocation != nil && lastLocationDate != nil  && didLastLocationExpire() {
-			locationClient.locationDetected(location: lastLocation, success: true, error:"")
+			notifyLocation(location: lastLocation, success: true, error: "")
 			return
 		}
 		
@@ -80,44 +84,14 @@ public class Location: NSObject, CLLocationManagerDelegate {
 		return expireDate <= Date()
 	}
 	
-	private func startLocationDetection() {
-		if CLLocationManager.locationServicesEnabled() {
-			locationManager.delegate = self
-			locationManager.desiredAccuracy = kCLLocationAccuracyBest
-			locationManager.startUpdatingLocation()
-		}
-		else {
-			locationClient.locationDetected(location:nil, success:false, error:"Location services disabled")
-		}
+	private func notifyAddress(address: String, success: Bool, error: String) {
+		locationInProgress = false
+		locationClient.addressDetected(address: address, success: success, error: error)
 	}
-
 	
-	////////////////////////////////////////////////////////////
-	// Location manager delegate
-	////////////////////////////////////////////////////////////
-	
-	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		
-		if locations.count > 0 {
-			
-			switch purpose! {
-			case Purpose.address:
-				parseAddress(locations)
-			case Purpose.location:
-				parseLocation(locations)
-			}
-			
-
-			
-		}
-		else {
-			self.locationClient.locationDetected(
-				location: nil,
-				success: false,
-				error: "Can't detect own location"
-			)
-		}
-		
+	private func notifyLocation(location: CLLocation?, success: Bool, error: String) {
+		locationInProgress = false
+		locationClient.locationDetected(location: location, success: success, error: error)
 	}
 	
 	private func parseAddress(_ locations: [CLLocation]) {
@@ -129,10 +103,10 @@ public class Location: NSObject, CLLocationManagerDelegate {
 					let firstLocation = placemarks?[0]
 					self.lastAddress = firstLocation?.name ?? "Earth"
 					self.lastLocationDate = Date.init()
-					self.locationClient.addressDetected(address: self.lastAddress, success: true, error: "")
+					self.notifyAddress(address: self.lastAddress, success: true, error: "")
 				}
 				else {
-					self.locationClient.addressDetected(address: "", success: false, error: error?.localizedDescription ?? "Error")
+					self.notifyAddress(address: "", success: false, error: error?.localizedDescription ?? "Error")
 				}
 		})
 	}
@@ -140,13 +114,65 @@ public class Location: NSObject, CLLocationManagerDelegate {
 	private func parseLocation(_ locations: [CLLocation]) {
 		lastLocation = locations[0]
 		lastLocationDate = Date.init()
-		locationClient.locationDetected(
-			location: self.lastLocation,
-			success: true,
-			error: ""
-		)
+		notifyLocation(location: self.lastLocation, success: true, error: "")
 	}
 	
+	private func startLocationDetection() {
+		if CLLocationManager.locationServicesEnabled() {
+			if locationInProgress {return}
+			locationInProgress = true
+			locationManager.delegate = self
+			locationManager.desiredAccuracy = kCLLocationAccuracyBest
+			locationManager.startUpdatingLocation()
+			
+			timeOutTimer = Timer.scheduledTimer(
+				withTimeInterval: 5,
+				repeats: false,
+				block: { timeOutTimer in self.timeOut() }
+			)
+		}
+		else {
+			notifyLocation(location: nil, success: false, error: "Location services disabled")
+		}
+	}
+	
+	private func timeOut() {
+		
+		if !locationInProgress {return} // Progress may have been finished just now
+		
+		let error = "Time out"
+		
+		switch purpose! {
+		case Purpose.address:
+			notifyAddress(address: "", success: false, error: error)
+		case Purpose.location:
+			notifyLocation(location: nil, success: false, error: error)
+		}
+
+	}
+
+	
+	////////////////////////////////////////////////////////////
+	// Location manager delegate
+	////////////////////////////////////////////////////////////
+	
+	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		
+		if !locationInProgress {return} // Progress may have been stopped due to timeout
+		
+		if locations.count > 0 {
+			switch purpose! {
+			case Purpose.address:
+				parseAddress(locations)
+			case Purpose.location:
+				parseLocation(locations)
+			}
+		}
+		else {
+			notifyLocation(location: nil, success: false, error: "Can't detect own location")
+		}
+		
+	}
 	
 	
 }
