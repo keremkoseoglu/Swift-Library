@@ -21,6 +21,8 @@ public class Location: NSObject, CLLocationManagerDelegate {
 		case location
 	}
 	
+	private static var DEFAULT_VALIDITY: Double = 15
+	public static var DEFAULT_TIMEOUT: Double = 5
 	private static var singleton: Location!
 	
 	private var geoCoder: CLGeocoder
@@ -54,7 +56,7 @@ public class Location: NSObject, CLLocationManagerDelegate {
 	// Self stuff
 	////////////////////////////////////////////////////////////
 	
-	public func requestAddress(client: LocationClient) {
+	public func requestAddress(client: LocationClient, timeOut:Double=Location.DEFAULT_TIMEOUT) {
 		purpose = Purpose.address
 		locationClient = client
 		
@@ -63,10 +65,10 @@ public class Location: NSObject, CLLocationManagerDelegate {
 			return
 		}
 		
-		startLocationDetection()
+		startLocationDetection(timeOut:timeOut)
 	}
 	
-	public func requestLocation(client: LocationClient) {
+	public func requestLocation(client: LocationClient, timeOut:Double=Location.DEFAULT_TIMEOUT) {
 		purpose = Purpose.location
 		locationClient = client
 		
@@ -75,12 +77,12 @@ public class Location: NSObject, CLLocationManagerDelegate {
 			return
 		}
 		
-		startLocationDetection()
+		startLocationDetection(timeOut:timeOut)
 	}
 	
-	private func didLastLocationExpire() -> Bool {
+	private func didLastLocationExpire() -> Bool {		
 		if lastLocationDate == nil {return true}
-		let expireDate = Date(timeInterval: 15 * 60, since: lastLocationDate)
+		let expireDate = Date(timeInterval: Location.DEFAULT_VALIDITY * 60, since: lastLocationDate)
 		return expireDate <= Date()
 	}
 	
@@ -117,7 +119,7 @@ public class Location: NSObject, CLLocationManagerDelegate {
 		notifyLocation(location: self.lastLocation, success: true, error: "")
 	}
 	
-	private func startLocationDetection() {
+	private func startLocationDetection(timeOut:Double) {
 		if CLLocationManager.locationServicesEnabled() {
 			if locationInProgress {return}
 			locationInProgress = true
@@ -125,8 +127,11 @@ public class Location: NSObject, CLLocationManagerDelegate {
 			locationManager.desiredAccuracy = kCLLocationAccuracyBest
 			locationManager.startUpdatingLocation()
 			
+			var actualTimeOut = timeOut
+			if actualTimeOut <= 0 {actualTimeOut = Location.DEFAULT_TIMEOUT}
+			
 			timeOutTimer = Timer.scheduledTimer(
-				withTimeInterval: 5,
+				withTimeInterval: actualTimeOut,
 				repeats: false,
 				block: { timeOutTimer in self.timeOut() }
 			)

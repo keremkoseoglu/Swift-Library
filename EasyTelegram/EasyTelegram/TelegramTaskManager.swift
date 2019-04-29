@@ -53,6 +53,8 @@ public struct TelegramTask {
 
 public class TelegramTaskManager: TelegramWorkClient {
 	
+	private static var DEFAULT_TIME_INTERVAL: Double = 1
+	
 	private var tasks: [TelegramTask]
 	private var processingTasks: Bool
 	private var taskTimer: Timer!
@@ -88,8 +90,11 @@ public class TelegramTaskManager: TelegramWorkClient {
 	public func resume() {
 		if (timerActive) { return }
 		
+		var actualInterval = Double(Settings.getTelegramSettings().taskManagerFrequency)
+		if actualInterval <= 0 {actualInterval = TelegramTaskManager.DEFAULT_TIME_INTERVAL}
+		
 		taskTimer = Timer.scheduledTimer(
-			withTimeInterval: 1,
+			withTimeInterval: actualInterval,
 			repeats: true,
 			block: { taskTimer in self.processNextTask() }
 		)

@@ -39,7 +39,7 @@ public protocol TelegramBotReplyListenerClient {
 
 public class TelegramBotReplyListener {
 	
-	private static var TIME_INTERVAL: Double = 3
+	private static var DEFAULT_TIME_INTERVAL: Double = 3
 	private static var MAX_TICK = 10
 	
 	private var longPoll: TelegramLongPoll
@@ -71,9 +71,12 @@ public class TelegramBotReplyListener {
 		longPollCheckCount = 0
 		botReply = TelegramBotReply()
 		
+		var actualInterval = Double(Settings.getTelegramSettings().telegramTimeout)
+		if actualInterval <= 0 {actualInterval = TelegramBotReplyListener.DEFAULT_TIME_INTERVAL}
+		
 		DispatchQueue.main.async {
 			self.taskTimer = Timer.scheduledTimer(
-				withTimeInterval: TelegramBotReplyListener.TIME_INTERVAL,
+				withTimeInterval: actualInterval,
 				repeats: true,
 				block: { taskTimer in self.timerTick() }
 			)
