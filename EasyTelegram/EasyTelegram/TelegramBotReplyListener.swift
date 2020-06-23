@@ -19,8 +19,8 @@ public struct TelegramBotReplyValue {
 }
 
 public class TelegramBotReply {
-	var command: String
-	var repliedValues: [TelegramBotReplyValue]
+	public var command: String
+	public var repliedValues: [TelegramBotReplyValue]
 	
 	public init() {
 		command = ""
@@ -117,7 +117,7 @@ public class TelegramBotReplyListener {
 	// Poll stuff
 	////////////////////////////////////////////////////////////
 	
-	private func parseBotReplyText(_ text:String) -> TelegramBotReply {
+	public static func parseBotReplyText(_ text:String) -> TelegramBotReply {
 		let output = TelegramBotReply()
 		
 		let splitText = text.split(separator: " ")
@@ -155,7 +155,7 @@ public class TelegramBotReplyListener {
 		while msgPos >= 0 {
 			let message = messages[msgPos]
 			if message.date <= latestDateBeforeParse {return}
-			botReply = parseBotReplyText(message.text)
+			botReply = TelegramBotReplyListener.parseBotReplyText(message.text)
 			
 			if  botReply.command == expectedBotReply &&
 				botReply.getValue("drone") == expectedBotID {
